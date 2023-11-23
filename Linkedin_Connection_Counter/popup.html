@@ -1,22 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LinkedIn connection counter</title>
-  <!-- <script src="content.js"></script> -->
-</head>
-<body>
-  <div>
-    <h1>LinkedIn Connection Counter</h1>
-    <p>Extension chrome pour compter les connexions ajoutées sur LinkedIn et renitialiser le compte au bout de 7 jours.</p>  
-  </div>
-  
-  <div>
-    <h3 id="message">
-       Le nombre de connexion ajoutée est de : 
-      <span id="valeurAffichee"></span>
-    </h3>
-  </div>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/css/bootstrap.min.css"
+    />
+    <title>popup</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:400,500&amp;subset=latin-ext"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+
+  <body>
+    <!-- Contenu de la page -->
+    <div class="html-bg">
+      <div class="container">
+        <div class="row pt-5 m-auto">
+          <div class="col-md-6 col-lg-4 pb-3 full-card">
+            <!-- Carte d'affichage -->
+            <div class="card card-custom bg-white border-white border-0">
+              <div
+                class="card-custom-img"
+                style="background-image: url(images/vert.png)"
+              >
+              </div>
+              <div class="card-custom-avatar">
+                <img class="img-fluid" src="images/icon.png" alt="Avatar" />
+              </div>
+              <div class="card-body" style="overflow-y: auto">
+                <h4 class="card-title"><b>Linkedin Invitation Counter</b></h4>
+                <p class="card-text">
+                  This extension counts the connection requests sent on LinkedIn
+                  every week (from Monday to Sunday).
+                </p>
+              </div>
+              <div
+                class="card-footer"
+                style="background: inherit; border-color: inherit"
+              >
+                <h5 class="card-title">
+                  <b>Total Connection Requests:</b>
+                  <b id="valeurAffichee"></b>
+                </h5>
+                <div>
+                  <p>
+                    Last invitations of the previous week :
+                    <span id="derniereValeur"></span>
+                  </p>
+                </div>
+
+                <div
+                  class="d-grid gap-2 d-md-flex justify-content-md-end gauche"
+                >
+                  <button
+                    id="resetBtn"
+                    type="button"
+                    class="btn btn-secondary btn-sm mr-2"
+                  >
+                    Counter reset
+                  </button>
+
+                  <a 
+                    class="btn btn-primary btn-sm"
+                    href="https://www.votre_site"
+                    target="_blank"
+                    role="button"
+                  >
+                    Weekly limits
+                  </a>
+                </div>
+
+                <p>
+                  With ❤️ from Paris. Developed and open sourced by
+
+                  <a href="https://www.icypeas.com/" target="_blank">
+                    icypeas.com
+                  </a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="popup.js"></script>
 </html>

@@ -1,9 +1,15 @@
 {
-  "manifest_version": 3,
-  "name": "LinkedIn connection counter",
-  "version": "1.0",
-  "description": "Extension chrome pour compter les connexions ajoutées sur LinkedIn et renitialiser le compte au bout de 7 jours.",
-  "permissions": ["activeTab", "storage", "scripting", "webRequest", "contextMenus"],
+  "manifest_version": 4,
+  "name": "Linkedin Invitation Counter",
+  "version": "1.5",
+  "description": "This extension counts the connection requests sent on LinkedIn every week (from Monday to Sunday).",
+  "permissions": [
+    "activeTab",
+    "storage",
+    "scripting",
+    "webRequest",
+    "contextMenus"
+  ],
   "action": {
     "default_popup": "popup.html",
     "default_icon": {
@@ -17,13 +23,11 @@
     "48": "images/icon48.png",
     "128": "images/icon128.png"
   },
+
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
       "js": ["content.js"]
     }
-  ],
-  "background": {
-    "service_worker": "background.js"
-  }
+  ]
 }
