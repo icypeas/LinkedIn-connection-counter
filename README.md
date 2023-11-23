@@ -27,9 +27,13 @@ This video demonstrates how to use it :
 
 <p dir="auto" align="center"><animated-image data-catalyst="">
 
-https://github.com/icypeas/LinkedIn-connection-counter/assets/137278677/befb6044-463c-4be6-9c6b-c199725e23bc
+https://github.com/icypeas/LinkedIn-connection-counter/assets/137278677/ee68178c-9919-4119-b818-8807e676caf8
 
 </p>
+
+
+
+
 
 ## 📋 Files
 
