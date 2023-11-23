@@ -5,7 +5,7 @@ The Icypeas team is proud to present LinkedIn Invitation Counter, a free and ope
 </h1>
 
 <p align="center">
- ![Capture d'écran 2023-11-23 125826](https://github.com/icypeas/LinkedIn-connection-counter/assets/137278677/ed5e084a-49ee-48c5-91ca-9c619d6c4e77)
+    <img width="400"  src="./Linkedin_Connection_Counter/images/linkeInCounter.png">
 </p>
 
 ## 💻 Install the project in developer mode
