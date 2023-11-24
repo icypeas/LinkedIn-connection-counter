@@ -23,6 +23,18 @@ The Icypeas team is proud to present LinkedIn Invitation Counter, a free and ope
 
 Seamlessly manage your LinkedIn connections—just another way our startup approach enhances your workflow.
 
+This video demonstrates how to use it :
+
+<p dir="auto" align="center"><animated-image data-catalyst="">
+
+https://github.com/icypeas/LinkedIn-connection-counter/assets/137278677/ee68178c-9919-4119-b818-8807e676caf8
+
+</p>
+
+
+
+
+
 ## 📋 Files
 
 - [ ] manifest.json: This file contains essential information about the Chrome extension, such as its name, version, description, permissions, and scripts. It also includes declarations of entry points, namely the popup page and content scripts.
