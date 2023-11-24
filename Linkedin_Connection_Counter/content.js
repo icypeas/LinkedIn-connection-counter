@@ -163,16 +163,16 @@ setInterval(reinitialiserCompteurChaqueDimanche, 86400000);
 
 // Fonction pour incrémenter le compteur chaque fois qu'elle est appelée
 function incrementerCompteur() {
-  chrome.storage.sync.get("compteur", (result) => {
-    // Vérifier si le compteur existe dans le stockage
-    if ("compteur" in result) {
+  chrome.storage.sync.get({"compteur": 0}, (result) => {
+    // // Vérifier si le compteur existe dans le stockage
+    // if ("compteur" in result) {
       // Le compteur existe, l'incrémenter
       let clickCount = parseInt(result.compteur, 10) + 1;
       chrome.storage.sync.set({ compteur: clickCount }, () => {});
-    } else {
-      // Le compteur n'existe pas, le créer et l'initialiser à 1
-      chrome.storage.sync.set({ compteur: 1 }, () => {});
-    }
+    // } else {
+    //   // Le compteur n'existe pas, le créer et l'initialiser à 1
+    //   chrome.storage.sync.set({ compteur: 1 }, () => {});
+    // }
   });
 }
 
@@ -230,46 +230,39 @@ function verifierDivSpecifique() {
 
   // Vérifiez si la div a été trouvée
   if (divSpecifique) {
-    // Sélectionnez le bouton "Envoyer" avec aria-label commençant par "Envoyer"
+    // Sélectionnez le bouton "Envoyer" ou "Send" avec aria-label commençant par "Envoyer" ou "Send"
     var boutonEnvoyer = divSpecifique.querySelector(
       'button[aria-label^="Envoye"]'
     );
+    var boutonSend = divSpecifique.querySelector(
+      'button[aria-label^="Send"]'
+    );
 
-    // Vérifiez si le bouton "Envoyer" a été trouvé
-    if (boutonEnvoyer) {
-      // Ajouter un gestionnaire d'événements pour le clic sur le bouton "Envoyer"
+    console.log("boutonEnvoyer", boutonEnvoyer);
+    console.log("boutonSend", boutonSend);
+
+    // Vérifiez si le bouton "Envoyer" ou "Send" a été trouvé
+    if (boutonEnvoyer || boutonSend) {
+      // Ajouter un gestionnaire d'événements pour le clic sur le bouton
       boutonEnvoyer.addEventListener("click", function () {
         // Incrémenter le compteur
         verifierJourSemaine();
       });
       return;
-    } else {
-      // Sélectionnez le bouton "Send" avec aria-label commençant par "Send"
-      var boutonSend = divSpecifique.querySelector(
-        'button[aria-label^="Send"]'
-      );
-      // Vérifiez si le bouton "Send" a été trouvé
-      if (boutonSend) {
-        // Ajouter un gestionnaire d'événements pour le clic sur le bouton "Send"
-        boutonSend.addEventListener("click", function () {
-          // Incrémenter le compteur
-          verifierJourSemaine();
-        });
-        return;
-      }
     }
-  } 
-  else {
+
+  } else {
     // Si la div spécifique n'est pas trouvée, vérifiez le changement de class du bouton
-    var elementTRUC = document.querySelector('.artdeco-button.artdeco-button--muted[class$="full-width"]');
-    if (elementTRUC) {
+    var elementReseau = document.querySelector('.artdeco-button.artdeco-button--muted[class$="full-width"]');
+    if (elementReseau) {
       // Si le changement de class est fait exécutez la fonction verifierJourSemaine()
       verifierJourSemaine();
+      // Désactivez l'observation après la première exécution
+      observerButtonSpecifique.disconnect();
       return
-    }
+    }    
   }
 }
-
 
 // Observer pour surveiller les modifications dans le DOM
 const observer = new MutationObserver((mutationsList) => {
@@ -309,5 +302,10 @@ var observerButtonSpecifique = new MutationObserver(verifierDivSpecifique);
 // Configurez l'observateur pour surveiller les changements dans le sous-arbre de la div spécifique
 var optionsDivSpecifique = { subtree: true, childList: true };
 observerButtonSpecifique.observe(document.body, optionsDivSpecifique);
+
+// Appelez la fonction pour rechercher et afficher les boutons existants
+document
+  .querySelectorAll('button.artdeco-button.artdeco-button--muted.artdeco-button--2.artdeco-button--secondary.ember-view')
+  .forEach(afficherBouton);
 
 // =======================================================FIN===================================================
