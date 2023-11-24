@@ -46,3 +46,7 @@ https://github.com/icypeas/LinkedIn-connection-counter/assets/137278677/ee68178c
 ##  👨‍💻 Support
 
 If you have any questions or require assistance, don't hesitate to reach out. Our dedicated support team is here to help you every step of the way. Contact us at support@icypeas.com for prompt and reliable assistance
+
+##  🙋 Credits
+
+This extension has been developed and open sourced by the team behind Icypeas https://www.icypeas.com/
