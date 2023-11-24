@@ -243,8 +243,10 @@ function verifierDivSpecifique() {
 
     // Vérifiez si le bouton "Envoyer" ou "Send" a été trouvé
     if (boutonEnvoyer || boutonSend) {
+      // Sélectionnez le bouton à utiliser pour le gestionnaire d'événements
+      var boutonClique = boutonEnvoyer || boutonSend;
       // Ajouter un gestionnaire d'événements pour le clic sur le bouton
-      boutonEnvoyer.addEventListener("click", function () {
+      boutonClique.addEventListener("click", function () {
         // Incrémenter le compteur
         verifierJourSemaine();
       });
