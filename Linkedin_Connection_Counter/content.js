@@ -135,10 +135,11 @@ chrome.storage.sync.get("premiereUtilisation", (result) => {
 // Configurez le délai pour déclencher la réinitialisation chaque dimanche à 23:59:59
 // Calculer le délai jusqu'au prochain dimanche à 23:59:59
 const maintenant = new Date();
+const joursAvantProchainDimanche = 7 - maintenant.getDay();
 const prochainDimanche = new Date(
   maintenant.getFullYear(),
   maintenant.getMonth(),
-  maintenant.getDate() + (7 - maintenant.getDay()),
+  maintenant.getDate() + joursAvantProchainDimanche,
   23,
   59,
   59,
