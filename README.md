@@ -1,6 +1,7 @@
 <p align="center">
 
-    <img width="400"  src="./src/images/Logo_Icypeas_-_LinkedIn_Counter.webp">
+   ![Logo_Icypeas_-_LinkedIn_Counter](https://github.com/icypeas/LinkedIn-connection-counter/assets/137278677/46f86cc0-50c1-45aa-b81e-a6c5cf0ab449)
+   
 
 </p>
 
@@ -10,7 +11,9 @@ The Icypeas team is proud to present LinkedIn Invitation Counter, a free and ope
 
 <p align="center">
 
-    <img width="400"  src="./src/images/linkeInCounter.png">
+    
+    
+![linkeInCounter](https://github.com/icypeas/LinkedIn-connection-counter/assets/137278677/fe801048-62de-45f1-8864-924d07a43cfd)
 
 </p>
 
