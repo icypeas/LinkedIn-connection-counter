@@ -1,7 +1,6 @@
 <p align="center">
 
-   ![Logo_Icypeas_-_LinkedIn_Counter](https://github.com/icypeas/LinkedIn-connection-counter/assets/137278677/46f86cc0-50c1-45aa-b81e-a6c5cf0ab449)
-   
+   ![Logo_Icypeas_-_LinkedIn_Counter](https://github.com/icypeas/LinkedIn-connection-counter/assets/137278677/a92523f5-0da0-4c00-a4bf-2be02dc3d377)
 
 </p>
 
@@ -9,11 +8,9 @@
 The Icypeas team is proud to present LinkedIn Invitation Counter, a free and open-source solution designed to count the number of times you click "Connect" on LinkedIn.
 </h1>
 
-<p align="center">
-
+<p align="center">   
     
-    
-![linkeInCounter](https://github.com/icypeas/LinkedIn-connection-counter/assets/137278677/fe801048-62de-45f1-8864-924d07a43cfd)
+   ![linkeInCounter](https://github.com/icypeas/LinkedIn-connection-counter/assets/137278677/fe801048-62de-45f1-8864-924d07a43cfd)
 
 </p>
 
