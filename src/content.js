@@ -163,16 +163,16 @@ setInterval(reinitialiserCompteurChaqueDimanche, 86400000);
 
 // Fonction pour incrémenter le compteur chaque fois qu'elle est appelée
 function incrementerCompteur() {
-  chrome.storage.sync.get({"compteur": 0}, (result) => {
-    // // Vérifier si le compteur existe dans le stockage
-    // if ("compteur" in result) {
+  chrome.storage.sync.get("compteur", (result) => {
+    // Vérifier si le compteur existe dans le stockage
+    if ("compteur" in result && result.compteur !== undefined) {
       // Le compteur existe, l'incrémenter
       let clickCount = parseInt(result.compteur, 10) + 1;
       chrome.storage.sync.set({ compteur: clickCount }, () => {});
-    // } else {
-    //   // Le compteur n'existe pas, le créer et l'initialiser à 1
-    //   chrome.storage.sync.set({ compteur: 1 }, () => {});
-    // }
+    } else {
+      // Le compteur n'existe pas ou est indéfini, le créer et l'initialiser à 1
+      chrome.storage.sync.set({ compteur: 1 }, () => {});
+    }
   });
 }
 
@@ -245,6 +245,9 @@ function verifierDivSpecifique() {
     if (boutonEnvoyer || boutonSend) {
       // Utilisez la variable correcte (boutonEnvoyer ou boutonSend) pour l'ajout du gestionnaire d'événements
       var boutonClique = boutonEnvoyer || boutonSend;
+
+      console.log("boutonClique :", boutonClique);
+
       // Ajouter un gestionnaire d'événements pour le clic sur le bouton
       boutonClique.addEventListener("click", function () {
         // Incrémenter le compteur
