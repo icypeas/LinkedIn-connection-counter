@@ -135,11 +135,10 @@ chrome.storage.sync.get("premiereUtilisation", (result) => {
 // Configurez le délai pour déclencher la réinitialisation chaque dimanche à 23:59:59
 // Calculer le délai jusqu'au prochain dimanche à 23:59:59
 const maintenant = new Date();
-const joursAvantProchainDimanche = 7 - maintenant.getDay();
 const prochainDimanche = new Date(
   maintenant.getFullYear(),
   maintenant.getMonth(),
-  maintenant.getDate() + joursAvantProchainDimanche,
+  maintenant.getDate() + (7 - maintenant.getDay()),
   23,
   59,
   59,
@@ -244,7 +243,7 @@ function verifierDivSpecifique() {
 
     // Vérifiez si le bouton "Envoyer" ou "Send" a été trouvé
     if (boutonEnvoyer || boutonSend) {
-      // Sélectionnez le bouton à utiliser pour le gestionnaire d'événements
+      // Utilisez la variable correcte (boutonEnvoyer ou boutonSend) pour l'ajout du gestionnaire d'événements
       var boutonClique = boutonEnvoyer || boutonSend;
       // Ajouter un gestionnaire d'événements pour le clic sur le bouton
       boutonClique.addEventListener("click", function () {
