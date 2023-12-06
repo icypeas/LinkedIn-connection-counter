@@ -4,7 +4,7 @@
   "version": "1.5",
   "description": "This extension counts the connection requests sent on LinkedIn every week (from Monday to Sunday).",
   "permissions": [
-    "activeTab",
+    "https://www.linkedin.com/",
     "storage",
     "scripting",
     "webRequest",
