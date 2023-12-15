@@ -223,49 +223,26 @@ function afficherBouton(bouton) {
 
 // Fonction pour vérifier la présence de la div avec la classe spécifique
 function verifierDivSpecifique() {
-  // Sélectionnez la div avec la classe spécifique
-  var divSpecifique = document.querySelector(
-    ".artdeco-modal.artdeco-modal--layer-default.send-invite"
-  );
-
-  // Vérifiez si la div a été trouvée
+  var divSpecifique = document.querySelector(".artdeco-modal.artdeco-modal--layer-default.send-invite");
   if (divSpecifique) {
-    // Sélectionnez le bouton "Envoyer" ou "Send" avec aria-label commençant par "Envoyer" ou "Send"
-    var boutonEnvoyer = divSpecifique.querySelector(
-      'button[aria-label^="Envoye"]'
-    );
-    var boutonSend = divSpecifique.querySelector(
-      'button[aria-label^="Send"]'
-    );
-
-    console.log("boutonEnvoyer", boutonEnvoyer);
-    console.log("boutonSend", boutonSend);
-
-    // Vérifiez si le bouton "Envoyer" ou "Send" a été trouvé
-    if (boutonEnvoyer || boutonSend) {
-      // Utilisez la variable correcte (boutonEnvoyer ou boutonSend) pour l'ajout du gestionnaire d'événements
-      var boutonClique = boutonEnvoyer || boutonSend;
-
-      console.log("boutonClique :", boutonClique);
-
-      // Ajouter un gestionnaire d'événements pour le clic sur le bouton
-      boutonClique.addEventListener("click", function () {
-        // Incrémenter le compteur
-        verifierJourSemaine();
-      });
-      return;
-    }
-
+    traiterDivSpecifique(divSpecifique);
   } else {
-    // Si la div spécifique n'est pas trouvée, vérifiez le changement de class du bouton
-    var elementReseau = document.querySelector('.artdeco-button.artdeco-button--muted[class$="full-width"]');
-    if (elementReseau) {
-      // Si le changement de class est fait exécutez la fonction verifierJourSemaine()
-      verifierJourSemaine();
-      // Désactivez l'observation après la première exécution
-      observerButtonSpecifique.disconnect();
-      return
-    }    
+    verifierChangementDeClasse();
+  }
+}
+
+function traiterDivSpecifique(div) {
+  var boutonClique = div.querySelector('button[aria-label*="Envoyer"], button[aria-label*="Send"]');
+  if (boutonClique && !boutonClique.dataset.eventAdded) {
+    boutonClique.addEventListener("click", verifierJourSemaine);
+    boutonClique.dataset.eventAdded = "true";
+  }
+}
+
+function verifierChangementDeClasse() {
+  var elementReseau = document.querySelector('.artdeco-button.artdeco-button--muted[class$="full-width"]');
+  if (elementReseau) {
+    verifierJourSemaine();
   }
 }
 
